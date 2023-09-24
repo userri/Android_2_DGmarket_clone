@@ -536,7 +536,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:text="💌유진님이 보낸 소중한 거래후기가 도착했어요!"
-                    app:layout_constraintStart_toEndOf="@id/alarmImg8"
+                    app:layout_constraintStart_toEndOf="@+id/alarmImg8"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
