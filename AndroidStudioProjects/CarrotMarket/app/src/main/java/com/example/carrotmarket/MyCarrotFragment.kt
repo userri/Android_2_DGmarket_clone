@@ -18,4 +18,8 @@ class MyCarrotFragment : Fragment() {
         binding = FragmentMyBinding.inflate(layoutInflater)
         return binding.root
     }
+
+    override fun onStart() {
+        super.onStart()
+    }
 }
