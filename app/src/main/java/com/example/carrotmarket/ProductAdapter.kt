@@ -8,6 +8,7 @@ import com.example.carrotmarket.databinding.ItemHomeProductBinding
 class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.Holder {
         val binding = ItemHomeProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        // 뷰 홀더 생성
         return Holder(binding)
     }
 
@@ -21,9 +22,9 @@ class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapte
 
     inner class Holder(val binding : ItemHomeProductBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(product: Product){
-//            binding.ivProductPicture.setImageResource(product.product_img)
+            binding.ivProductPicture.setImageResource(product.product_img)
             binding.tvProductTitle.text = product.product_title
-//            binding.tvProductId.text = product.product_id
+            binding.tvProductAddress.text = product.product_Address
             binding.tvProductPrice.text = product.product_price
             binding.tvItemHomeComment.text = product.comment_count.toString()
             binding.tvItemHomeLike.text = product.like_count.toString()

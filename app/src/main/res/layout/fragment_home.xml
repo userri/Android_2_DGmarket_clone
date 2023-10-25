@@ -1,4 +1,4 @@
-햣<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/alarm_icon"
+            android:id="@+id/iv_home_alarm"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/icon_notification"
@@ -56,7 +56,7 @@
             android:layout_marginEnd="20dp"
             android:src="@drawable/ic_search_outline_18"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/alarm_icon"
+            app:layout_constraintEnd_toStartOf="@id/iv_home_alarm"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

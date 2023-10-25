@@ -14,89 +14,56 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
 
-    //기능추가
-//    binding.recyclerView.setOnClickListener {
-//        val intent = Intent(requireContext(), ProductActivity::class.java)
-//        startActivity(intent)
-//    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = FragmentHomeBinding.inflate(layoutInflater)
-    }
+    var productAdapter: ProductAdapter? = null
+    var product_list = ArrayList<Product>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        val product_list = ArrayList<Product>()
-
-        product_list.add(
-            Product(
-                R.drawable.bear,
-                "귀여운 곰",
-                "bear1",
-                "5만원",
-                99,
-                99
-            )
-        )
-        product_list.add(
-            Product(
-                "맛있는 당근",
-                "carrot1",
-                "3만원",
-                9,
-                9
-            )
-        )
-
-        product_list.add(
-            Product(
-                "맛있는 당근",
-                "carrot1",
-                "3만원",
-                9,
-                9
-            )
-        )
+        binding = FragmentHomeBinding.inflate(layoutInflater)
 
 
+        binding.ivHomeAlarm.setOnClickListener {
+            val intent = Intent(requireContext(), AlarmActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.homeProduct1.setOnClickListener {
+            val intent = Intent(requireContext(), StuffInfoActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
+    // Fragment 생명 주기
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initProduct()
+        attachProductAdapter()
+    }
+
+    private fun attachProductAdapter() {
+        productAdapter = ProductAdapter(product_list)
+        // TODO: 작성한 어댑터를 binding과 연결하고 layoutManager 등록하기
 
 
+        // TODO : setOnItemClickListener에 제공할 인터페이스를 익명 클래스로 작성하고,  화면 클릭 이벤트 구현하기
+        productAdapter!!.setOnItemClickListener(
 
-    override fun onStart() {
-        super.onStart()
+        )
+    }
 
-        binding.recyclerView.setOnClickListener {
-            activity?.let{
-                val intent = Intent(context, ProductActivity::class.java)
-                startActivity(intent)
-            }
-        }
-
-
-        binding.alarmIcon.setOnClickListener {
-            activity?.let{
-                val intent = Intent(context, AlarmActivity::class.java)
-                startActivity(intent)
-            }
-        }
-
-        val floatingActionButton: FloatingActionButton
-
-        var fab = binding.fab
-        fab.setOnClickListener {
-            val intent =
-                Intent(activity, PostActivity::class.java) //fragment라서 activity intent와는 다른 방식
-            startActivity(intent)
-        }
+    // TODO: 각자 구성한 데이터 클래스에 맞게 더미 데이터를 구성해보기
+    private fun initProduct() {
+        product_list.addAll(
+            arrayListOf(
+                Product("인형1","의정부동", "20,000원", 1, 2, R.drawable.bear ),
+                Product
+            )
+        )
     }
 
 
