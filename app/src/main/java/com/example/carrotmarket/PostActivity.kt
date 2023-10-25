@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.example.carrotmarket.databinding.ActivityPostBinding
 
 class PostActivity : AppCompatActivity() {
-    lateinit var binding:
+    lateinit var binding: ActivityPostBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostBinding.inflate(layoutInflater)

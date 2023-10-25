@@ -30,10 +30,10 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.homeProduct1.setOnClickListener {
-            val intent = Intent(requireContext(), StuffInfoActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.homeProduct1.setOnClickListener {
+//            val intent = Intent(requireContext(), StuffInfoActivity::class.java)
+//            startActivity(intent)
+//        }
         return binding.root
     }
 
@@ -51,17 +51,17 @@ class HomeFragment : Fragment() {
 
 
         // TODO : setOnItemClickListener에 제공할 인터페이스를 익명 클래스로 작성하고,  화면 클릭 이벤트 구현하기
-        productAdapter!!.setOnItemClickListener(
-
-        )
+//        productAdapter!!.setOnItemClickListener(
+//
+//        )
     }
 
     // TODO: 각자 구성한 데이터 클래스에 맞게 더미 데이터를 구성해보기
     private fun initProduct() {
         product_list.addAll(
             arrayListOf(
-                Product("인형1","의정부동", "20,000원", 1, 2, R.drawable.bear ),
-                Product
+//                Product("인형1","의정부동", "20,000원", 1, 2, R.drawable.bear ),
+//                Product
             )
         )
     }
