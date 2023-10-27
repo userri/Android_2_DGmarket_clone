@@ -13,13 +13,16 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ProductDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(Color.parseColor("#ff801f"))
-        }
+        val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra("product_info", Product::class.java) ?: "asdf"
+        } else { // 버전이 tiramisu보다 낮을 때
+            intent.getSerializableExtra("product_info") as Product?
+        } ?: Product(1, "temp", "temp","temp", 1, 2)
 
         binding.backBtn.setOnClickListener{
             finish()
             Log.d("ProductActivity", "backBtn 클릭")
         }
+
     }
 }
