@@ -16,16 +16,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-
-            <ImageView
-                android:id="@+id/iv_product"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:src="@drawable/bear"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_product"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="400dp"-->
+<!--                android:src="@drawable/bear"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/memberInfo"
@@ -33,7 +40,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_product">
+                app:layout_constraintTop_toBottomOf="@id/vp_image">
 
                 <ImageView
                     android:id="@+id/iv_user"

@@ -14,8 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
-
-
+    private var productAdapter:ProductAdapter?=null
     val product_list = ArrayList<Product>()
 
 
@@ -42,13 +41,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        val productAdapter = ProductAdapter(product_list)
+        productAdapter = ProductAdapter(product_list)
         binding.recyclerView.adapter = productAdapter
-        binding.recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager=LinearLayoutManager(context)
+        // context도 되고 requireContext()도 가능
 
         productAdapter!!.setOnItemClickListener(object : ProductAdapter.OnItemClickListener{
             override fun onItemClick(product: Product) {
-                val intent = Intent(requireContext(), ProductActivity::class.java)
+                val intent = Intent(context, ProductActivity::class.java)
                 intent.putExtra("product_data", product)
                 startActivity(intent)
                 Log.d("clickEvent", "클릭됐음")

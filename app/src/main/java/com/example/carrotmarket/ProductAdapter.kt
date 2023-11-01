@@ -7,7 +7,7 @@ import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carrotmarket.databinding.ItemHomeProductBinding
 
-class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.Holder>() {
+class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     private lateinit var itemClickListener : OnItemClickListener
     interface OnItemClickListener{
@@ -17,16 +17,16 @@ class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapte
     fun setOnItemClickListener(itemClickListener: OnItemClickListener){
         this.itemClickListener = itemClickListener
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapter.ViewHolder {
         val binding = ItemHomeProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         // 뷰 홀더 생성
-        return Holder(binding)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ProductAdapter.Holder, position: Int) {
+    override fun onBindViewHolder(holder: ProductAdapter.ViewHolder, position: Int) {
         holder.bind(productList[position])
         val binding = holder.binding
-        binding.clItemHome1.setOnClickListener{
+        binding.homeProduct1.setOnClickListener{
             itemClickListener.onItemClick(productList[position])
         }
     }
@@ -35,7 +35,7 @@ class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapte
         return productList.size
     }
 
-    inner class Holder(val binding : ItemHomeProductBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(val binding : ItemHomeProductBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(product: Product){
             binding.ivProductPicture.setImageResource(product.product_img)
             binding.tvProductTitle.text = product.product_title
@@ -43,6 +43,10 @@ class ProductAdapter(val productList : ArrayList<Product>) : RecyclerView.Adapte
             binding.tvProductPrice.text = product.product_price
             binding.tvItemHomeComment.text = product.comment_count.toString()
             binding.tvItemHomeLike.text = product.like_count.toString()
+
+            binding.homeProduct1.setOnClickListener{
+                itemClickListener.onItemClick(product)
+            }
         }
 
     }
