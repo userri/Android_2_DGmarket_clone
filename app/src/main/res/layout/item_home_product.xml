@@ -35,8 +35,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/tv_item_contents_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="62dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="5dp"
             android:orientation="vertical"
@@ -50,33 +50,33 @@
                 android:id="@+id/tvProductTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tvProductAddress"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="저한텐 안어울리네요 새거예요1"
                 android:textColor="@color/gray_600"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/tvProductAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvProductAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProductTitle"
                 android:text="서울특별시 동대문구 58초전"
-                android:textColor="@color/gray_300" />
+                android:textColor="@color/gray_300"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProductTitle" />
 
             <TextView
                 android:id="@+id/tvProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProductAddress"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:text="19,000원"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProductAddress" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

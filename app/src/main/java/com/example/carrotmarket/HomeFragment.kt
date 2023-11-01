@@ -1,8 +1,8 @@
 package com.example.carrotmarket
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +17,7 @@ class HomeFragment : Fragment() {
 
 
     val product_list = ArrayList<Product>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,11 +46,12 @@ class HomeFragment : Fragment() {
         binding.recyclerView.adapter = productAdapter
         binding.recyclerView.layoutManager=LinearLayoutManager(requireContext())
 
-        productAdapter.setOnItemClickListener(object : ProductAdapter.OnItemClickListener{
+        productAdapter!!.setOnItemClickListener(object : ProductAdapter.OnItemClickListener{
             override fun onItemClick(product: Product) {
                 val intent = Intent(requireContext(), ProductActivity::class.java)
                 intent.putExtra("product_data", product)
                 startActivity(intent)
+                Log.d("clickEvent", "클릭됐음")
             }
         })
     }
@@ -57,105 +59,90 @@ class HomeFragment : Fragment() {
     private fun initProductList() {
         product_list.add(
             Product(
-                R.drawable.btn_minus,
+                R.drawable.bear,
+                "곰인형1 팔아요",
+                "의정부1동",
+                "200만원",
+                99,
+                88
+            )
+        )
+        product_list.add(
+            Product(
+                R.drawable.teddybear,
+                "곰인형2 팔아요",
+                "의정부2동",
+                "300만원",
+                99,
+                88
+            )
+        )
+        product_list.add(
+            Product(
+                R.drawable.carrotimg,
+                "당근 팔아요",
+                "의정부3동",
+                "400만원",
+                99,
+                88
+            )
+        )
+        product_list.add(
+            Product(
+                R.drawable.bear,
+                "곰인형1 팔아요",
+                "의정부4동",
+                "500만원",
+                99,
+                88
+            )
+        )
+        product_list.add(
+            Product(
+                R.drawable.teddybear,
+                "곰인형2 팔아요",
+                "의정부5동",
+                "600만원",
+                99,
+                88
+            )
+        )
+        product_list.add(
+            Product(
+                R.drawable.carrotimg,
+                "당근 팔아요",
+                "의정부6동",
+                "700만원",
+                99,
+                88
+            )
+        )
+        product_list.add(
+            Product(
+                R.drawable.bear,
                 "곰인형1 팔아요",
                 "의정부동",
-                "200만원",
+                "800만원",
                 99,
                 88
             )
         )
         product_list.add(
             Product(
-                R.drawable.btn_minus,
+                R.drawable.teddybear,
                 "곰인형2 팔아요",
                 "의정부동",
-                "200만원",
+                "1000만원",
                 99,
                 88
             )
         )
         product_list.add(
             Product(
-                R.drawable.btn_minus,
-                "곰인형3 팔아요",
+                R.drawable.carrotimg,
+                "당근 팔아요",
                 "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-                "곰인형4 팔아요",
-                "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-                "곰인형 팔아요",
-                "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-
-                "곰인형 팔아요",
-                "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-
-                "곰인형 팔아요",
-                "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-
-                "곰인형 팔아요",
-                "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-
-                "곰인형 팔아요",
-                "의정부동",
-                "200만원",
-                99,
-                88
-            )
-        )
-        product_list.add(
-            Product(
-                R.drawable.btn_minus,
-
-                "곰인형 팔아요",
-                "의정부동",
-                "200만원",
+                "1100만원",
                 99,
                 88
             )
@@ -164,11 +151,23 @@ class HomeFragment : Fragment() {
     }
 
     // Fragment 생명 주기
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        attachProductAdapter()
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        val productAdapter = ProductAdapter(product_list)
+//        binding.recyclerView.adapter = productAdapter
+//        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//
+//        productAdapter.setOnItemClickListener(object : ProductAdapter.OnItemClickListener {
+//            override fun onItemClick(product: Product) {
+//                // 항목 클릭 처리
+//                val intent = Intent(requireContext(), ProductActivity::class.java)
+//                intent.putExtra("product_data", product)
+//                startActivity(intent)
+//                Log.d("clickEvent", "클릭됐음")
+//            }
+//        })
+//    }
 
 //    private fun attachProductAdapter() {
 //        productAdapter = ProductAdapter(product_list)
