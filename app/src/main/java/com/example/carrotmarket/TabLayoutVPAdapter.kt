@@ -13,8 +13,8 @@ class TabLayoutVPAdapter(activity: FragmentActivity) : FragmentStateAdapter(acti
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> ActivityNotify()
-            else -> KeywordNotify()
+            0 -> ChattingFragment()
+            else -> MyCarrotFragment()
         }
     }
 }

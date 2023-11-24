@@ -37,17 +37,19 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/login_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:fontFamily="@font/interbold"
-            android:text="유저"
+            android:text="로그인을 해주세요."
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/iv_user_profile_image"
             app:layout_constraintStart_toEndOf="@id/iv_user_profile_image"
             app:layout_constraintTop_toTopOf="@id/iv_user_profile_image" />
 
         <TextView
+            android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="61dp"
@@ -58,7 +60,7 @@
             android:paddingTop="8dp"
             android:paddingRight="13dp"
             android:paddingBottom="8dp"
-            android:text="프로필 보기"
+            android:text="로그인"
             android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -1,5 +1,6 @@
 package com.example.carrotmarket
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,10 +17,13 @@ class MyCarrotFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMyBinding.inflate(layoutInflater)
+
+        binding.loginBtn.setOnClickListener {
+            val loginIntent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(loginIntent)
+        }
+
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
 }
